@@ -5,19 +5,20 @@
 #include <stdio.h>
 int main(void)
 {
-	int num, A, B, i;
-	int sum[] = { 0 };
-	scanf("%d", &num);
-	for (i = 0; i < num; i++)
+	int T, A, B, i;
+	scanf("%d", &T);
+
+	int* sum = malloc(sizeof(int) * T);
+
+	for (i = 0; i < T; i++)
 	{
 		scanf("%d %d", &A, &B);
 		sum[i] = A + B;
 	}
 
-	for (i = 0; i < num; i++)
-	{
+	for (i = 0; i < T; i++)
 		printf("%d\n", sum[i]);
-	}
 
+	free(sum);
 	return 0;
 }
