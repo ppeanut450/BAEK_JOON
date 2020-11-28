@@ -3,12 +3,16 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 int main(void)
 {
 	int T, A, B, i;
 	scanf("%d", &T);
 
-	int* sum = malloc(sizeof(int) * T);
+	int* sum = (int *)malloc(sizeof(int) * T);
+
+	if (sum == NULL)
+		printf("error");
 
 	for (i = 0; i < T; i++)
 	{
