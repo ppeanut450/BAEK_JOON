@@ -12,7 +12,7 @@ int main(void)
 	int* sum = (int *)malloc(sizeof(int) * T);
 
 	if (sum == NULL)
-		printf("error");
+		return -1;
 
 	for (i = 0; i < T; i++)
 	{
