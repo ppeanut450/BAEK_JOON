@@ -17,5 +17,6 @@ int main(void)
 	for (int i = 0; i < T; i++)
 		printf("Case #%d: %d\n", i + 1, sum[i]);
 
+	free(sum);
 	return 0;
 }
