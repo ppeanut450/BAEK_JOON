@@ -22,25 +22,33 @@ N이 주어졌을 때, N의 사이클의 길이를 구하는 프로그램을 작성하시오. */
 #include <stdio.h>
 int main(void)
 {
-	int N, result = 0, sum = 0;
+	int N, sum = 0, count = 0;
 	scanf("%d", &N);
-	int M = N;
-	while (result != N)
+	int result = N;
+	do 
 	{
-		if (M < 10)
+		if (result < 10)
 		{
-			result = 0 + M;
-			result += M * 10;
+			sum = 0 + result;
+			result += sum * 10;
+			count++;
 		}
 		else
 		{
-			result = M / 10 + M % 10;
-			if (result < 10)
-				result = (M % 10) * 10 + result;
+			sum = result / 10 + result % 10;
+			if (sum < 10)
+			{
+				result = (result % 10) * 10 + sum;
+				count++;
+			}
 			else
-				result = (result - 10) + (M % 10);
+			{
+				result = (sum - 10) + (result % 10) * 10;
+				count++;
+			}		
 		}
-	}
-	printf("%d", result);
+	} while (result != N);
+
+	printf("%d", count);
 	return 0;
 }
