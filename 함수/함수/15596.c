@@ -8,24 +8,22 @@ n: 합을 구해야 하는 정수의 개수
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-int sum(int n)
+long long sum(int* a, int n)
 {
-	int sum = 0;
-	int* a = (int*)malloc(sizeof(int) * n);
-	
+	long long ans = 0;
 	for (int i = 0; i < n; i++)
-	{
-		scanf("%d", &a[i]);
-		sum += a[i];
-	}
-	free(a);
-	return sum;
+		ans += a[i];
+	return ans;
 }
 
 int main(void)
 {
 	int n;
 	scanf("%d", &n);
-	printf("%d", sum(n));
+	int* a = (int*)malloc(sizeof(int) * n);
+	for (int i = 0; i < n; i++)
+		scanf("%d", &a[i]);
+	printf("%d", sum(a, n));
+	free(a);
 	return 0;
 }
