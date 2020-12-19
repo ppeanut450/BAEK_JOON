@@ -2,23 +2,21 @@
 #include <stdio.h>
 int main(void)
 {
-	int A, B, C, count = 0, i = 1;
+	int A, B, C, i = 0;
 	scanf("%d %d %d", &A, &B, &C);
-	int sum = -A;
-	while(1)
+
+	while (1)
 	{
 		if (i == B)
 			break;
-		sum += -B + C;
-		count++;
 		i++;
-		if (sum > 0)
+		if (i > A / (C - B))
 		{
-			printf("%d", count);
+			printf("%d", i);
 			return 0;
 		}
 	}
-	if (sum <= 0)
+	if (-A - B * i + C * i <= 0)
 		printf("-1");
 	return 0;
 }
